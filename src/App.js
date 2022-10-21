@@ -10,7 +10,7 @@ function App() {
 		e.preventDefault();
 		if (search === "") return;
 
-		const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info=inprop=url&utf8=&format=json&origin=*&srlimit=5&srsearch=${search}`;
+		const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info=inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${search}`;
 
 		const response = await fetch(endpoint);
 
@@ -27,7 +27,7 @@ function App() {
 
 	return (
 		<div
-			className="App flex flex-col h-screen
+			className=" flex flex-col h-screen
 		 w-screen items-center place-content-center bg-black text-white"
 		>
 			<header className="text-center">
@@ -56,7 +56,7 @@ function App() {
 					</p>
 				)}
 			</header>
-			<div className="p-3 mt-10 bg-gray-400 text-black rounded-xl">
+			<div className="p-4 mt-10 bg-gray-400 text-black rounded-xl">
 				{results.map((result, i) => {
 					const url = `https:/en.wikipedia.org/?curid=${result.pageid}`;
 					return (
